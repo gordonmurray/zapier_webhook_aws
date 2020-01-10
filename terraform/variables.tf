@@ -33,3 +33,7 @@ variable "application_name" {
 variable "application_url" {
   type = "string"
 }
+
+variable "public_key" {
+  type = "string"
+}
