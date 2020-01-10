@@ -1,0 +1,8 @@
+name: Inspec items for Zapier Webhook
+title: Inspec items for Zapier Webhook
+maintainer: Gordon Murray
+license: None
+summary: InSpec controls for zapier.ingress.gordonmurray.com
+version: 0.0.1
+supports:
+  - os-family: linux

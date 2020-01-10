@@ -1,0 +1,7 @@
+{
+    "base_ami_id": "ami-02df9ea15c1778c9c",
+    "profile": "default",
+    "region": "eu-west-1",
+    "instance_type": "t3.nano",
+    "application_name": "zapier_webhook"
+}
