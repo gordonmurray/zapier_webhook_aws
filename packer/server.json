@@ -36,8 +36,7 @@
       "role_paths": [
         "../ansible/roles/nginx",
         "../ansible/roles/php",
-        "../ansible/roles/permissions",
-        "../ansible/roles/certbot"
+        "../ansible/roles/permissions"
       ],
       "group_vars": "../ansible/group_vars"
     },
@@ -49,7 +48,9 @@
     {
       "type": "shell",
       "inline": [
-        "sudo mv /home/ubuntu/zapier.ingress.gordonmurray.com /etc/nginx/sites-available/zapier.ingress.gordonmurray.com"
+        "sudo mv /home/ubuntu/zapier.ingress.gordonmurray.com /etc/nginx/sites-available/zapier.ingress.gordonmurray.com",
+        "sudo ln -s /etc/nginx/sites-available/zapier.ingress.gordonmurray.com /etc/nginx/sites-enabled/",
+        "sudo rm -f /etc/nginx/sites-enabled/default"
       ]
     },
     {
