@@ -1,7 +1,7 @@
 resource "aws_acm_certificate" "gordonmurray" {
-  domain_name               = "gordonmurray.com"
+  domain_name               = "ingress.gordonmurray.com"
   validation_method         = "DNS"
-  subject_alternative_names = ["www.gordonmurray.com"]
+  subject_alternative_names = ["*.ingress.gordonmurray.com"]
 
   tags = {
     Name = var.application_name
