@@ -1,3 +1,4 @@
+# Add some packages
 - name: Install PHP and some related packages
   vars:
     packages:
@@ -9,3 +10,12 @@
     pkg: "{{ packages }}"
     update_cache: yes
     state: latest
+
+# Remove packages
+- name: Remove apache2
+  vars:
+    packages:
+      - apache2
+  apt:
+    pkg: "{{ packages }}"
+    state: absent
