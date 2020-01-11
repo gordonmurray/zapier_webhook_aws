@@ -5,8 +5,6 @@ resource "aws_lb" "loadbalancer" {
   security_groups    = [aws_security_group.application.id]
   subnets            = [aws_subnet.subnet-1a.id, aws_subnet.subnet-1b.id]
 
-  enable_deletion_protection = true
-
   tags = {
     Name = var.application_name
   }
@@ -26,7 +24,7 @@ resource "aws_lb_target_group" "application_targetgroup" {
 }
 
 resource "aws_lb_listener" "application" {
-  load_balancer_arn = "${aws_lb.loadbalancer.arn}"
+  load_balancer_arn = aws_lb.loadbalancer.arn
   port              = "443"
   protocol          = "HTTPS"
   ssl_policy        = "ELBSecurityPolicy-TLS-1-2-2017-01"
@@ -34,6 +32,6 @@ resource "aws_lb_listener" "application" {
 
   default_action {
     type             = "forward"
-    target_group_arn = "${aws_lb_target_group.application_targetgroup.arn}"
+    target_group_arn = aws_lb_target_group.application_targetgroup.arn
   }
 }
