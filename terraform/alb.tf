@@ -19,4 +19,21 @@ resource "aws_lb_target_group" "application_targetgroup" {
   port     = 80
   protocol = "HTTP"
   vpc_id   = aws_vpc.application.id
+
+  tags = {
+    Name = var.application_name
+  }I
+}
+
+resource "aws_lb_listener" "application" {
+  load_balancer_arn = "${aws_lb.loadbalancer.arn}"
+  port              = "443"
+  protocol          = "HTTPS"
+  ssl_policy        = "ELBSecurityPolicy-TLS-1-2-2017-01"
+  certificate_arn   = "arn:aws:acm:eu-west-1:016230046494:certificate/1ae54795-35f8-4712-805b-ea9f692d180e"
+
+  default_action {
+    type             = "forward"
+    target_group_arn = "${aws_lb_target_group.application_targetgroup.arn}"
+  }
 }
