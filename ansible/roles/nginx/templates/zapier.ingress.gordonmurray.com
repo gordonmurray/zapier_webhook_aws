@@ -45,13 +45,3 @@ server {
 
     add_header Strict-Transport-Security "max-age=31536000" always; # managed by Certbot
 }
-server {
-    if ($host = zapier.ingress.gordonmurray.com) {
-        return 301 https: //$host$request_uri;
-        } # managed by Certbot
-
-        listen 80 ;
-
-    server_name zapier.ingress.gordonmurray.com;
-    return 404; # managed by Certbot
-}
