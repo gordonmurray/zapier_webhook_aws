@@ -14,7 +14,7 @@ default_region = "eu-west-1"
 default_instance_type = "t3a.nano"
 
 # application name
-application_name = "zapier_webhook"
+application_name = "zapier-webhook"
 
 # application url
 application_url = "zapier.ingress.gordonmurray.com"
