@@ -1,7 +1,6 @@
 resource "aws_acm_certificate" "gordonmurray" {
-  domain_name               = "ingress.gordonmurray.com"
+  domain_name               = "zapier.ingress.gordonmurray.com"
   validation_method         = "DNS"
-  subject_alternative_names = ["*.ingress.gordonmurray.com"]
 
   tags = {
     Name = var.application_name
