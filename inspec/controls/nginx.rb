@@ -20,6 +20,22 @@ title 'Ensure Nginx is set up correctly'
         it { should_not exist }
     end
 
+    describe file('/etc/nginx/sites-available/default') do
+        it { should_not exist }
+    end
+
+    describe file('/etc/nginx/sites-enabled/default') do
+        it { should_not exist }
+    end
+
+    describe file('/etc/nginx/sites-enabled/zapier.ingress.gordonmurray.com') do
+        it { should exist }
+    end
+
+    describe file('/etc/nginx/sites-available/zapier.ingress.gordonmurray.com') do
+        it { should exist }
+    end
+
     describe bash('php -v') do
         its('exit_status') { should eq 0 }
     end

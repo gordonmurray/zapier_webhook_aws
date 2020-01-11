@@ -19,8 +19,12 @@ resource "aws_instance" "application" {
   subnet_id              = aws_subnet.subnet-1a.id
   key_name               = aws_key_pair.pem-key.key_name
 
+  user_data = << EOF
+    #! /bin/bash
+    sudo certbot --nginx --agree-tos -m gordon@gordonmurray.com -d zapier.ingress.gordonmurray.com
+  EOF
+
   tags = {
     Name = var.application_name
   }
 }
-

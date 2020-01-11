@@ -40,13 +40,16 @@
     },
     {
       "type": "file",
-      "source": "../ansible/roles/nginx/templates/default",
-      "destination": "/home/ubuntu/default"
+      "source": "../ansible/roles/nginx/templates/zapier.ingress.gordonmurray.com",
+      "destination": "/home/ubuntu/zapier.ingress.gordonmurray.com"
     },
     {
       "type": "shell",
       "inline": [
-        "sudo mv /home/ubuntu/default /etc/nginx/sites-available/default"
+        "sudo mv /home/ubuntu/zapier.ingress.gordonmurray.com /etc/nginx/sites-available/zapier.ingress.gordonmurray.com",
+        "sudo ln -s /etc/nginx/sites-available/zapier.ingress.gordonmurray.com /etc/nginx/sites-enabled/",
+        "sudo rm -f /etc/nginx/sites-available/default",
+        "sudo rm -f /etc/nginx/sites-enabled/default"
       ]
     },
     {
