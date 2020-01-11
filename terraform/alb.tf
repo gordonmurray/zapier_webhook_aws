@@ -16,11 +16,13 @@ resource "aws_lb" "loadbalancer" {
   tags = {
     Name = var.application_name
   }
+
+  depends_on = [aws_s3_bucket.zapier_webhook_loadbalancer_logs]
 }
 
 resource "aws_lb_target_group" "application_targetgroup" {
   name     = "application-targetgroup"
   port     = 80
   protocol = "HTTP"
-  vpc_id   = "aws_vpc.application.id"
+  vpc_id   = aws_vpc.application.id
 }
