@@ -11,7 +11,7 @@ resource "aws_lb" "loadbalancer" {
     Name = var.application_name
   }
 
-  depends_on = [aws_s3_bucket.zapier_webhook_loadbalancer_logs]
+  depends_on = [aws_acm_certificate.gordonmurray]
 }
 
 resource "aws_lb_target_group" "application_targetgroup" {
