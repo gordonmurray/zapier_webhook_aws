@@ -22,7 +22,7 @@ resource "aws_lb_target_group" "application_targetgroup" {
 
   tags = {
     Name = var.application_name
-  }I
+  }
 }
 
 resource "aws_lb_listener" "application" {
