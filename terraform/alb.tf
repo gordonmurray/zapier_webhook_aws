@@ -4,6 +4,7 @@ resource "aws_lb" "loadbalancer" {
   load_balancer_type = "application"
   security_groups    = [aws_security_group.application.id]
   subnets            = [aws_subnet.subnet-1a.id, aws_subnet.subnet-1b.id]
+  region             = var.default_region
 
   enable_deletion_protection = true
 
