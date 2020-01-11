@@ -1,3 +1,4 @@
+# Create a load balancer
 resource "aws_lb" "loadbalancer" {
   name               = "application-loadbalancer"
   internal           = false
@@ -12,6 +13,7 @@ resource "aws_lb" "loadbalancer" {
   depends_on = [aws_acm_certificate.gordonmurray]
 }
 
+# Create a target group
 resource "aws_lb_target_group" "application_targetgroup" {
   name     = "application-targetgroup"
   port     = 80
@@ -23,6 +25,7 @@ resource "aws_lb_target_group" "application_targetgroup" {
   }
 }
 
+# Connect the LB to a Target group
 resource "aws_lb_listener" "application" {
   load_balancer_arn = aws_lb.loadbalancer.arn
   port              = "443"
@@ -34,4 +37,11 @@ resource "aws_lb_listener" "application" {
     type             = "forward"
     target_group_arn = aws_lb_target_group.application_targetgroup.arn
   }
+}
+
+# Attach the target group to an EC2 instance
+resource "aws_lb_target_group_attachment" "target" {
+  target_group_arn = aws_lb_target_group.application_targetgroup.arn
+  target_id        = aws_instance.application.id
+  port             = 80
 }
