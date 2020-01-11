@@ -4,7 +4,7 @@ resource "aws_security_group_rule" "ingress" {
   to_port           = 80
   protocol          = "tcp"
   cidr_blocks       = ["0.0.0.0/0"]
-  security_group_id = "${aws_security_group.application.id}"
+  security_group_id = aws_security_group.application.id
   description       = "Public HTTP"
 }
 
@@ -14,6 +14,7 @@ resource "aws_security_group_rule" "egress" {
   to_port           = 0
   protocol          = "all"
   cidr_blocks       = ["0.0.0.0/0"]
-  security_group_id = "${aws_security_group.application.id}"
+  security_group_id = aws_security_group.application.id
   description       = "Allow all out"
 }
+

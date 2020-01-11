@@ -1,39 +1,40 @@
 # Variables used
 variable "aws_account_id" {
   // read from terraform.tfvars
-  type = "string"
+  type = string
 }
 
 variable "default_instance_type" {
   // read from terraform.tfvars
-  type = "string"
+  type = string
 }
 
 variable "default_region" {
   // read from terraform.tfvars
-  type = "string"
+  type = string
 }
 
 variable "apply_immediately" {
   // read from terraform.tfvars
-  type    = "string"
+  type    = string
   default = "false"
 }
 
 variable "encryption_at_rest" {
   // read from terraform.tfvars
-  type    = "string"
+  type    = string
   default = "true"
 }
 
 variable "application_name" {
-  type = "string"
+  type = string
 }
 
 variable "application_url" {
-  type = "string"
+  type = string
 }
 
 variable "public_key" {
-  type = "string"
+  type = string
 }
+
