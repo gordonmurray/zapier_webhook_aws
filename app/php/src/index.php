@@ -1,2 +1,5 @@
 <?php
-echo "Hello world!";
+
+$name = trim(getenv('name')) ?? 'john doe';
+
+echo "Hello $name";

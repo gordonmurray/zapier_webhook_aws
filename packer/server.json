@@ -1,4 +1,7 @@
 {
+  "variables": {
+    "name": "Gordon"
+  },
   "builders": [
     {
       "type": "amazon-ebs",
