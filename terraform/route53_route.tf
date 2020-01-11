@@ -3,6 +3,6 @@ resource "aws_route53_record" "application_cname" {
   name    = var.application_url
   type    = "CNAME"
   ttl     = "60"
-  records = [aws_instance.application.public_dns]
+  records = [aws_lb.loadbalancer.dns_name]
 }
 
