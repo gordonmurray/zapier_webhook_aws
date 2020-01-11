@@ -8,6 +8,12 @@ title 'Ensure Nginx is set up correctly'
         it { should be_running }
     end
 
+    describe service('apache') do
+        it { should_not be_installed }
+        it { should_not be_enabled }
+        it { should_not be_running }
+    end
+
     describe port(80) do
         it { should be_listening }
     end
@@ -18,18 +24,6 @@ title 'Ensure Nginx is set up correctly'
 
     describe file('/var/www/html/index.nginx-debian.html') do
         it { should_not exist }
-    end
-
-    describe file('/etc/nginx/sites-available/default') do
-        it { should_not exist }
-    end
-
-    describe file('/etc/nginx/sites-enabled/default') do
-        it { should_not exist }
-    end
-
-    describe file('/etc/nginx/sites-enabled/zapier.ingress.gordonmurray.com') do
-        it { should exist }
     end
 
     describe file('/etc/nginx/sites-available/zapier.ingress.gordonmurray.com') do
