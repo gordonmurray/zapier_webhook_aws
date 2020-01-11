@@ -46,10 +46,7 @@
     {
       "type": "shell",
       "inline": [
-        "sudo mv /home/ubuntu/zapier.ingress.gordonmurray.com /etc/nginx/sites-available/zapier.ingress.gordonmurray.com",
-        "sudo ln -s /etc/nginx/sites-available/zapier.ingress.gordonmurray.com /etc/nginx/sites-enabled/",
-        "sudo rm -f /etc/nginx/sites-available/default",
-        "sudo rm -f /etc/nginx/sites-enabled/default"
+        "sudo mv /home/ubuntu/zapier.ingress.gordonmurray.com /etc/nginx/sites-available/zapier.ingress.gordonmurray.com"
       ]
     },
     {
