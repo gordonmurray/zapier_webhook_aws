@@ -1,7 +1,4 @@
 {
-  "variables": {
-    "name": "Gordon"
-  },
   "builders": [
     {
       "type": "amazon-ebs",
@@ -63,7 +60,7 @@
         "sudo ln -s /etc/nginx/sites-available/zapier.ingress.gordonmurray.com /etc/nginx/sites-enabled/",
         "sudo rm -f /etc/nginx/sites-enabled/default",
         "cd /var/www/html/ && php composer.phar install",
-        "rm -f /var/www/html/composer.phar"
+        "rm -f /var/www/html/composer.phar /var/www/html/composer.sh"
       ]
     },
     {

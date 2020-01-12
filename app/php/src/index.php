@@ -3,7 +3,7 @@
 // Include the SDK using the composer autoloader
 require 'vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../.env');
 $dotenv->load();
 
 $post = file_get_contents('php://input');
@@ -27,8 +27,6 @@ if ($post != "") {
         'Body'   => serialize($post)
     ]);
 
-    // Print the body of the result by indexing into the result object.
-    var_dump($result);
 }
 
-echo "done";
+echo "Done";

@@ -57,3 +57,7 @@ title 'Ensure Nginx is set up correctly'
     describe file('/var/www/html/composer.phar') do
         it { should_not exist }
     end
+
+    describe file('/var/www/html/composer.sh') do
+        it { should_not exist }
+    end
