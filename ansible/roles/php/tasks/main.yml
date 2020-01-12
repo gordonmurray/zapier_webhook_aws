@@ -2,10 +2,14 @@
 - name: Install PHP and some related packages
   vars:
     packages:
+      - zip
+      - unzip
       - php
       - php-fpm
       - php-cli
       - php-curl
+      - php-xml
+      - php-zip
   apt:
     pkg: "{{ packages }}"
     update_cache: yes

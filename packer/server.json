@@ -8,7 +8,7 @@
       "profile": "{{user `profile`}}",
       "region": "{{user `region`}}",
       "source_ami": "{{user `base_ami_id`}}",
-      "instance_type": "{{user `instance_type`}}",
+      "instance_type": "t3.large",
       "force_deregister": "true",
       "force_delete_snapshot": "true",
       "ssh_username": "ubuntu",
@@ -36,7 +36,8 @@
       "role_paths": [
         "../ansible/roles/nginx",
         "../ansible/roles/php",
-        "../ansible/roles/permissions"
+        "../ansible/roles/permissions",
+        "../ansible/roles/composer"
       ],
       "group_vars": "../ansible/group_vars"
     },
@@ -46,17 +47,24 @@
       "destination": "/home/ubuntu/zapier.ingress.gordonmurray.com"
     },
     {
+      "type": "file",
+      "source": "../app/php/src/index.php",
+      "destination": "/var/www/html/"
+    },
+    {
+      "type": "file",
+      "source": "../app/php/src/composer.json",
+      "destination": "/var/www/html/"
+    },
+    {
       "type": "shell",
       "inline": [
         "sudo mv /home/ubuntu/zapier.ingress.gordonmurray.com /etc/nginx/sites-available/zapier.ingress.gordonmurray.com",
         "sudo ln -s /etc/nginx/sites-available/zapier.ingress.gordonmurray.com /etc/nginx/sites-enabled/",
-        "sudo rm -f /etc/nginx/sites-enabled/default"
+        "sudo rm -f /etc/nginx/sites-enabled/default",
+        "cd /var/www/html/ && php composer.phar install",
+        "rm -f /var/www/html/composer.phar"
       ]
-    },
-    {
-      "type": "file",
-      "source": "../app/php/src/index.php",
-      "destination": "/var/www/html/"
     },
     {
       "type": "inspec",

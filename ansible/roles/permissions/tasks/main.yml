@@ -1,6 +1,6 @@
 - name: Set /var/www ownership
   file:
-    path: /var/www
+    path: /var/www/html/
     state: directory
     recurse: yes
     owner: ubuntu

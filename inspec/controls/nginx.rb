@@ -45,3 +45,15 @@ title 'Ensure Nginx is set up correctly'
     describe file('/var/www/html/index.php') do
         it { should exist }
     end
+
+    describe file('/var/www/html/composer.json') do
+        it { should exist }
+    end
+
+    describe file('/var/www/html/composer.lock') do
+        it { should exist }
+    end
+
+    describe file('/var/www/html/composer.phar') do
+        it { should_not exist }
+    end

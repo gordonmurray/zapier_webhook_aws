@@ -1,0 +1,10 @@
+- name: Upload Composer install script
+  copy:
+    src: ../templates/composer.sh
+    dest: /var/www/html/composer.sh
+    mode: '0777'
+
+- name: Install Composer
+  shell: /var/www/html/composer.sh
+  args:
+    chdir: /var/www/html/
