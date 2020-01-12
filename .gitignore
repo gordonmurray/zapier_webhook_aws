@@ -2,3 +2,6 @@ terraform/.terraform
 terraform/terraform.tfstate
 terraform/terraform.tfstate.backup
 terraform/terraform.tfvars
+
+.env
+app/php/src/vendor
