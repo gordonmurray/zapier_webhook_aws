@@ -1,9 +1,13 @@
 <?php
 
-// Include the SDK using the composer autoloader
+// composer autoload
 require 'vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../.env');
+// Sentry
+Sentry\init(['dsn' => 'https://7956ba00c4494add8c2730c1404748dc@sentry.io/1878950' ]);
+
+// dotenv
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
 
 $post = file_get_contents('php://input');

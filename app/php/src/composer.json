@@ -1,6 +1,7 @@
 {
     "require": {
         "aws/aws-sdk-php": "^3.132",
-        "vlucas/phpdotenv": "^4.1"
+        "vlucas/phpdotenv": "^4.1",
+        "sentry/sdk": "2.1.0"
     }
 }

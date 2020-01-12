@@ -10,6 +10,7 @@
       - php-curl
       - php-xml
       - php-zip
+      - php-mbstring
   apt:
     pkg: "{{ packages }}"
     update_cache: yes
