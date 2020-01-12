@@ -38,3 +38,18 @@ variable "public_key" {
   type = string
 }
 
+variable "application_aws_key" {
+  type = string
+}
+variable "application_aws_secret" {
+  type = string
+}
+
+variable "application_aws_region" {
+  type = string
+}
+
+variable "s3_bucket" {
+  type = string
+  default = "zapier-webhook-logs-bucket"
+}
