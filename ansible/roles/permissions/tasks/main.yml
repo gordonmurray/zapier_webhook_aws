@@ -1,4 +1,4 @@
-- name: Set /var/www ownership
+- name: Set /var/www/html ownership
   file:
     path: /var/www/html/
     state: directory

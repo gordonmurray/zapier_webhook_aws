@@ -32,16 +32,11 @@
       "playbook_file": "../ansible/server.yml",
       "role_paths": [
         "../ansible/roles/nginx",
-        "../ansible/roles/php",
         "../ansible/roles/permissions",
+        "../ansible/roles/php",
         "../ansible/roles/composer"
       ],
       "group_vars": "../ansible/group_vars"
-    },
-    {
-      "type": "file",
-      "source": "../ansible/roles/nginx/templates/zapier.ingress.gordonmurray.com",
-      "destination": "/home/ubuntu/zapier.ingress.gordonmurray.com"
     },
     {
       "type": "file",
@@ -56,9 +51,6 @@
     {
       "type": "shell",
       "inline": [
-        "sudo mv /home/ubuntu/zapier.ingress.gordonmurray.com /etc/nginx/sites-available/zapier.ingress.gordonmurray.com",
-        "sudo ln -s /etc/nginx/sites-available/zapier.ingress.gordonmurray.com /etc/nginx/sites-enabled/",
-        "sudo rm -f /etc/nginx/sites-enabled/default",
         "cd /var/www/html/ && php composer.phar install",
         "rm -f /var/www/html/composer.phar /var/www/html/composer.sh"
       ]

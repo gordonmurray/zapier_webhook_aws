@@ -16,7 +16,7 @@
     update_cache: yes
     state: latest
 
-# Remove packages
+# Remove packages we don't want
 - name: Remove apache2
   vars:
     packages:

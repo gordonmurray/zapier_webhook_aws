@@ -11,3 +11,19 @@
   file:
     path: /var/www/html/index.nginx-debian.html
     state: absent
+
+- name: Delete the default virtual host
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+
+- name: Copy virtual host file
+  copy:
+    src: templates/zapier.ingress.gordonmurray.com
+    dest: /etc/nginx/sites-available/zapier.ingress.gordonmurray.com
+
+- name: Enable the virtual host with a symbolic link
+  file:
+    src: /etc/nginx/sites-available/zapier.ingress.gordonmurray.com
+    dest: /etc/nginx/sites-enabled/zapier.ingress.gordonmurray.com
+    state: link
